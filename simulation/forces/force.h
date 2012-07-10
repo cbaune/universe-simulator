@@ -3,7 +3,6 @@
 
 #include "../object.h"
 #include "../objectcontainer.h"
-#include "../types.h"
 #include <vector>
 
 namespace simulation {
@@ -15,7 +14,7 @@ public:
   virtual ~Force();
   void Act(tTime dt);
 private:
-  virtual Vec Calculate(std::vector<Object*>::iterator Id1, std::vector<Object*>::iterator Id2) = 0;
+  virtual Vec Calculate(ObjectIterator Id1, ObjectIterator Id2) = 0;
 
 };
 

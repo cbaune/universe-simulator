@@ -14,7 +14,7 @@ public:
   Gravitation();
   ~Gravitation();
 private:
-  Vec Calculate(std::vector<Object*>::iterator Id1, std::vector<Object*>::iterator Id2);
+  Vec Calculate(ObjectIterator Id1, ObjectIterator Id2);
 };
 
 }
