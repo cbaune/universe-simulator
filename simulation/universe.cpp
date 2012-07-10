@@ -13,12 +13,12 @@ void Universe::Simulate(tTime dt) {
   grav.Act(dt);
 
   // actually move the objects:
-  for(std::vector<Object*>::iterator it=Objects.begin(); it!=Objects.end(); it++)
+  for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++)
     (*it)->Propagate(dt);
 }
 
 void Universe::Print(std::ostream& stream) {
-  for(std::vector<Object*>::iterator it=Objects.begin(); it!=Objects.end(); it++) {
+  for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++) {
     (*it)->Print(stream);
     stream << " ";
   }

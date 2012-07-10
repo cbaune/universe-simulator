@@ -13,13 +13,13 @@ void ObjectContainer::AddObject(Object* newobject) {
 }
 
 bool ObjectContainer::Contains(Object *newobject) {
-  std::vector<Object*>::iterator it = find (Objects.begin(), Objects.end(), newobject);
+  ObjectIterator it = find (Objects.begin(), Objects.end(), newobject);
   if(it==Objects.end()) return false;
   else return true;
 }
 
 void ObjectContainer::RemoveObject(Object *newobject) {
-  std::vector<Object*>::iterator it = find (Objects.begin(), Objects.end(), newobject);
+  ObjectIterator it = find (Objects.begin(), Objects.end(), newobject);
   if(it!=Objects.end()) Objects.erase(it);
 }
 

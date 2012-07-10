@@ -27,6 +27,9 @@ private:
   bool fixed;
 };
 
+typedef std::vector<Object*>::iterator ObjectIterator;
+
+
 }
 
 #endif // UNIVERSEOBJECT_H
