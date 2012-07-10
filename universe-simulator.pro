@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     preset/presetobject.cpp \
     simulation/forces/force.cpp \
     simulation/forces/gravitation.cpp \
-    simulation/objectcontainer.cpp
+    simulation/objectcontainer.cpp \
+    simulation/forces/collision.cpp
 
 HEADERS += \
     simulation/universe.h \
@@ -21,6 +22,7 @@ HEADERS += \
     simulation/forces/force.h \
     simulation/forces/gravitation.h \
     simulation/objectcontainer.h \
+    simulation/forces/collision.h
 
 OTHER_FILES += \
     simulation.plt
