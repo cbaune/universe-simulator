@@ -23,6 +23,9 @@ private:
   bool done;
   void UpdateLogic();
   void UpdateGraphics();
+  unsigned int SimulationSteps;
+  float RadiusScale;
+  float PositionScale;
 };
 
 }

@@ -10,7 +10,6 @@
 using namespace std;
 int main()
 {
-  cout << "Hello World!" << endl;
 
   // Objekte erstellen:
   preset::PresetObject p;
@@ -93,6 +92,7 @@ int main()
   U.AddGravitationObject(&Mars);
   U.AddGravitationObject(&Sonne2);
 
+  // Jump into the center of mass system:
   U.SetCMSSystem();
   /*U.AddObject(Jupiter);
   U.AddObject(Saturn);
