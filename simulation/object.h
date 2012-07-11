@@ -18,6 +18,7 @@ public:
   tPosition Radius();
   Vec Position();
   Vec Velocity();
+  void AddVelocity(Vec newvel);
   tElasticity Elasticity();
   void Print(std::ostream& stream);
 private:

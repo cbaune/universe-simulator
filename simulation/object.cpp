@@ -42,6 +42,10 @@ Vec Object::Velocity() {
   return velocity;
 }
 
+void Object::AddVelocity(Vec newvel) {
+  velocity += newvel;
+}
+
 tElasticity Object::Elasticity() {
   return elasticity;
 }
