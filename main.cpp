@@ -5,6 +5,7 @@
 #include <fstream>
 #include "simulation/constants.h"
 #include "preset/presetobject.h"
+#include "ui/game.h"
 
 using namespace std;
 int main()
@@ -101,29 +102,11 @@ int main()
 
   // Simulieren:
 
-  const long Simulate_Step = 60; // Schrittgröße beim Simulieren (in Sekunden)
-  const long Record_Steps = 24*60; // Nach Wievielen Schritten Daten speichern?
-  const long Simulation_Days = 1e4; // Simulationsdauer in Tagen
+  ui::Game game;
+  game.Initialize(&U);
+  game.MainLoop();
+  game.Shutdown();
 
-
-  int dmax = Simulation_Days*24*60*60/Record_Steps/Simulate_Step;
-
-  std::cout << "Simulating " << Simulation_Days << " days in " << dmax << " Steps ..." << std::endl;
-
-  fstream file;
-  file.open("out.dat",ios_base::out);
-
-  for(int d=0; d<dmax; d++) {
-    for(int s=0; s<Record_Steps; s++) {
-      U.Simulate(Simulate_Step);
-    }
-    if(d%100==0)
-      std::cout << " " << (d+1)*100.0/dmax << " %" << std::endl;
-    U.Print(file);
-  }
-
-  file.close();
-  std::cout << "Done." << std::endl;
   return 0;
 }
 
