@@ -34,7 +34,7 @@ PresetObject::PresetObject() {
   // Apollo11 from somwhere on the web
 
   masses[Sonne] = 1.989e30;
-  radii[Sonne] = 1.392e6;
+  radii[Sonne] = 1.392e9/2;
   orbit_radii[Sonne] = 0;
   orbital_periods[Sonne] = 0;
 
