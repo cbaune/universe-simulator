@@ -34,4 +34,25 @@ void Universe::AddGravitationObject(Object *newobject) {
   grav.AddObject(newobject);
 }
 
+void Universe::SetCMSSystem() {
+  Vec Pges;
+  Vec Rges;
+  // Calculate velocity of CMS
+  tMass msum = 0;
+  for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++) {
+    Pges += (*it)->Velocity()*(*it)->Mass();
+    Rges += (*it)->Position()*(*it)->Mass();
+    msum +=(*it)->Mass();
+  }
+  Pges /= msum;
+  Rges /= msum;
+
+  // add negative CMS-velocity to all objects (Galilei-Transformation)
+
+  for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++) {
+    (*it)->AddVelocity(-Pges);
+    (*it)->AddPosition(-Rges);
+  }
+}
+
 }

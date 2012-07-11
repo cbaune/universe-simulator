@@ -92,6 +92,8 @@ int main()
   U.AddGravitationObject(&Mond);
   U.AddGravitationObject(&Mars);
   U.AddGravitationObject(&Sonne2);
+
+  U.SetCMSSystem();
   /*U.AddObject(Jupiter);
   U.AddObject(Saturn);
   U.AddObject(Uranus);

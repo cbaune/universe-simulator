@@ -38,7 +38,7 @@ void Game::MainLoop() {
 
 
 void Game::UpdateLogic() {
-  U->Simulate(60,600);
+  U->Simulate(60,24*60);
 }
 
 void Game::UpdateGraphics() {
@@ -48,6 +48,7 @@ void Game::UpdateGraphics() {
     float r =  (*it)->Radius()*5e-8;
     if(r<1.0) r = 2;
     simulation::Vec pos =  (*it)->Position();
+    //simulation::Vec cms =  U->CenterOfMass();
     float x = pos[0]*5e-10+400;
     float y = 300-pos[1]*5e-10;
     std::cout << " " << x << ":" << y << ":" << r;
@@ -75,7 +76,7 @@ void Game::Initialize(simulation::Universe *universe) {
   if (!al_install_keyboard())
     Abort("Failed to install keyboard");
 
-  timer = al_create_timer(1.0 / 60);
+  timer = al_create_timer(1.0 / 30);
   if (!timer)
     Abort("Failed to create timer");
   al_set_new_display_flags(ALLEGRO_WINDOWED);
