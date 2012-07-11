@@ -15,7 +15,7 @@ class Universe : public ObjectContainer {
 public:
   Universe();
   ~Universe();
-  void Simulate(tTime dt);
+  void Simulate(tTime dt, unsigned int NumberOfTimeSteps);
   void Print(std::ostream& stream);
   void AddGravitationObject(Object* newobject);
 private:

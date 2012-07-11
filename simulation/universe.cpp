@@ -8,13 +8,17 @@ Universe::Universe() {}
 
 Universe::~Universe() {}
 
-void Universe::Simulate(tTime dt) {
-  // recalculate velocities:
-  grav.Act(dt);
+void Universe::Simulate(tTime dt, unsigned int NumberOfTimeSteps) {
 
-  // actually move the objects:
-  for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++)
-    (*it)->Propagate(dt);
+  for(unsigned int i = 0; i < NumberOfTimeSteps; i++) {
+
+    // recalculate velocities:
+    grav.Act(dt);
+
+    // actually move the objects:
+    for(ObjectIterator it=Objects.begin(); it!=Objects.end(); it++)
+      (*it)->Propagate(dt);
+  }
 }
 
 void Universe::Print(std::ostream& stream) {
