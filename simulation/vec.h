@@ -23,6 +23,11 @@ public:
   tPosition operator*(Vec v2);
   Vec operator*(tPosition scale);
   Vec operator/(tPosition scale);
+  void operator+=(Vec v2);
+  void operator-=(Vec v2);
+  void operator*=(tPosition scale);
+  void operator/=(tPosition scale);
+
 
 private:
   tPosition x[nDim];

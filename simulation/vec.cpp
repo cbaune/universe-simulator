@@ -75,4 +75,20 @@ Vec Vec::operator/(tPosition scale) {
   return operator*(1.0/scale);
 }
 
+void Vec::operator +=(Vec v2) {
+  *this = *this + v2;
+}
+
+void Vec::operator -=(Vec v2) {
+  *this = *this - v2;
+}
+
+void Vec::operator *=(tPosition scale) {
+  *this = *this * scale;
+}
+
+void Vec::operator /=(tPosition scale) {
+  *this = *this / scale;
+}
+
 }
