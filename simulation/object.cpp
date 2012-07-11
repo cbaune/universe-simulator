@@ -46,6 +46,10 @@ void Object::AddVelocity(Vec newvel) {
   velocity += newvel;
 }
 
+void Object::AddPosition(Vec newpos) {
+  position += newpos;
+}
+
 tElasticity Object::Elasticity() {
   return elasticity;
 }
