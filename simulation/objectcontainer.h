@@ -35,7 +35,7 @@ public:
    *@param object Der Pointer des Objekts, welches entfernt werden soll.
    */
   void RemoveObject(Object* object);
-protected:
+public:
   /**
    *Die interne Objektliste, zum Speichern der Pointer der hinzugefügten Objekte.
    */
