@@ -13,10 +13,12 @@ public:
   Object(tMass m, tPosition rad, Vec pos, Vec vel, tElasticity ela, bool fix);
   void ApplyForce(Vec F, tTime dt);
   void Propagate(tTime dt);
-  void Merge(Object target);
+  void Merge(Object* target);
   tMass Mass();
   tPosition Radius();
   Vec Position();
+  Vec Velocity();
+  tElasticity Elasticity();
   void Print(std::ostream& stream);
 private:
   tMass mass;

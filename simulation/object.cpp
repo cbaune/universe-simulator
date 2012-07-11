@@ -17,12 +17,12 @@ void Object::Propagate(tTime dt) {
     position[i] += velocity[i]*dt;
 }
 
-void Object::Merge(Object target) {
+void Object::Merge(Object *target) {
   // recalculate velocity:
   for(unsigned int i=0; i<nDim; i++)
-    velocity[i] = ( (mass*velocity[i]) + (target.mass*target.velocity[i]) ) / (mass + target.mass);
-  mass+=target.mass;
-  delete &target;
+    velocity[i] = ( (mass*velocity[i]) + (target->mass*target->velocity[i]) ) / (mass + target->mass);
+  mass+=target->mass;
+  delete target;
 }
 
 tMass Object::Mass() {
@@ -36,6 +36,14 @@ tPosition Object::Radius() {
 
 Vec Object::Position() {
   return position;
+}
+
+Vec Object::Velocity() {
+  return velocity;
+}
+
+tElasticity Object::Elasticity() {
+  return elasticity;
 }
 
 void Object::Print(std::ostream &stream) {
