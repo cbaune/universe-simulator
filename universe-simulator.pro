@@ -12,7 +12,8 @@ SOURCES += main.cpp \
     simulation/objectcontainer.cpp \
     simulation/forces/collision.cpp \
     ui/game.cpp \
-    ui/window.cpp
+    ui/window.cpp \
+    ui/objectpath.cpp
 
 HEADERS += \
     simulation/universe.h \
@@ -26,7 +27,8 @@ HEADERS += \
     simulation/objectcontainer.h \
     simulation/forces/collision.h \
     ui/game.h \
-    ui/window.h
+    ui/window.h \
+    ui/objectpath.h
 
 OTHER_FILES += \
     simulation.plt
