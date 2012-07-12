@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     simulation/forces/gravitation.cpp \
     simulation/objectcontainer.cpp \
     simulation/forces/collision.cpp \
-    ui/game.cpp
+    ui/game.cpp \
+    ui/window.cpp
 
 HEADERS += \
     simulation/universe.h \
@@ -24,9 +25,10 @@ HEADERS += \
     simulation/forces/gravitation.h \
     simulation/objectcontainer.h \
     simulation/forces/collision.h \
-    ui/game.h
+    ui/game.h \
+    ui/window.h
 
 OTHER_FILES += \
     simulation.plt
 
-LIBS += -L/usr/include/allegro5 -lallegro -lallegro_primitives
+LIBS += -L/usr/include/allegro5 -lallegro -lallegro_primitives -lallegro_font -lallegro_ttf

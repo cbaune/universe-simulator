@@ -2,7 +2,11 @@
 #define GAME_H
 
 #include <allegro5/allegro5.h>
+
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 #include "../simulation/universe.h"
+#include "window.h"
 
 namespace ui {
 
@@ -23,9 +27,11 @@ private:
   bool done;
   void UpdateLogic();
   void UpdateGraphics();
+  void UserInput(ALLEGRO_EVENT &Event);
   unsigned int SimulationSteps;
-  float RadiusScale;
-  float PositionScale;
+  bool MoveWindow;
+  Window* W;
+  ALLEGRO_FONT *font;
 };
 
 }
