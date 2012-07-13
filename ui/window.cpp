@@ -45,15 +45,19 @@ void Window::MoveViewport(int dx, int dy) {
 }
 
 float Window::ScreenCoordX(simulation::Vec Position) {
-  if(FollowObject)
+  if(FollowObject) {
     ViewX = FollowObject->Position()[0]*Zoom;
-  return Position[0]*Zoom - ViewX + Width/2;
+    return (Position[0] - FollowObject->Position()[0])*Zoom + Width/2;
+  } else
+    return Position[0]*Zoom - ViewX + Width/2;
 }
 
 float Window::ScreenCoordY(simulation::Vec Position) {
-  if(FollowObject)
-    ViewY = -FollowObject->Position()[1]*Zoom;
-  return -Position[1]*Zoom - ViewY + Height/2;
+  if(FollowObject) {
+    ViewY = FollowObject->Position()[1]*Zoom;
+    return (Position[1] - FollowObject->Position()[1])*Zoom + Height/2;
+  } else
+    return Position[1]*Zoom - ViewY + Height/2;
 }
 
 float Window::ScaledRadius(simulation::tPosition Radius) {
