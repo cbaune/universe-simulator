@@ -87,10 +87,16 @@ void Game::UserInput(ALLEGRO_EVENT &event) {
 
 void Game::UpdateLogic() {
   U->Simulate(60*60,SimulationSteps);
+  for(std::vector<ObjectPath>::iterator it = ObjectPaths.begin(); it != ObjectPaths.end(); it++)
+    it->Update();
 }
 
 void Game::UpdateGraphics() {
    //std::cout << "Drawing Objects at";
+
+  for(std::vector<ObjectPath>::iterator it = ObjectPaths.begin(); it != ObjectPaths.end(); it++)
+    it->Draw();
+
   for(simulation::ObjectIterator it=U->Objects.begin(); it!=U->Objects.end(); it++) {
     // Draw object
     //float r =  (*it)->Radius()*RadiusScale;
@@ -178,6 +184,11 @@ void Game::Initialize(simulation::Universe *universe) {
   al_register_event_source(event_queue, al_get_mouse_event_source());
   al_register_event_source(event_queue, al_get_timer_event_source(timer));
   al_register_event_source(event_queue, al_get_display_event_source(display));
+
+  for(simulation::ObjectIterator it = U->Objects.begin(); it != U->Objects.end(); it++) {
+    ObjectPaths.push_back(ObjectPath((*it),W));
+  }
+
 }
 
 void Game::Abort(const char *Message) {

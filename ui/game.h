@@ -6,6 +6,7 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 #include "../simulation/universe.h"
+#include "objectpath.h"
 #include "window.h"
 
 namespace ui {
@@ -32,6 +33,7 @@ private:
   bool MoveWindow;
   Window* W;
   ALLEGRO_FONT *font;
+  std::vector<ObjectPath> ObjectPaths;
 };
 
 }
