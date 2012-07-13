@@ -18,9 +18,9 @@ void ObjectPath::Update() {
 void ObjectPath::Draw() {
   simulation::Vec PreviousPoint;
   int i=PathSteps;
-  for (std::list<simulation::Vec>::iterator it = Path.begin(); it != Path.end(); it++) {
-    if(it!=Path.begin()) {
-      float percentage = (i)*1.0/PathSteps;
+  for (std::list<simulation::Vec>::reverse_iterator it = Path.rbegin(); it != Path.rend(); it++) {
+    if(it!=Path.rbegin()) {
+      float percentage = (PathSteps-i)*1.0/NumberOfElements;
       --i;
 
       al_draw_line(W->ScreenCoordX(PreviousPoint), W->ScreenCoordY(PreviousPoint),
